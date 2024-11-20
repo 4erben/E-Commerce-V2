@@ -1,0 +1,54 @@
+.fullscreen{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.4;
+    top: 0;
+    background-color: rgba(var(--shade));
+    padding: 0;
+    z-index: 20;
+}  
+#sidebar{
+    position: fixed;
+    left: -100%;
+    top: 0;
+    min-height: 100vh;
+    background-color: rgba(var(--surface-a0),1);
+    @apply !text-surfaceA10 ;
+    z-index: 30;
+    transition: all 0.4s ease-in-out;
+
+}  
+#sidebar.expanded{
+    left:0;
+}
+.sidebarList{
+     li{
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+        text-transform: capitalize;
+        cursor: pointer;
+        padding: 5px 5px;
+        margin: 5px 0;
+        @apply rounded-md;
+     }
+     li:hover{
+        @apply bg-surfaceA20/55
+     }
+}
+.dropdown{
+    position: relative;
+}
+.optionsMenu{
+@apply lg:flex hidden gap-5  shrink-0 grow-0 ;
+}
+
+
+.optionsMenu>li{
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    text-transform: capitalize;
+}
+

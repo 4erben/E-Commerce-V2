@@ -1,0 +1,89 @@
+.card{
+
+}
+.card:hover{
+    .cardHeader button{
+        display: block;
+    }
+    .cardHeader3 button{
+        display: block
+    }
+    .cardBody{
+        @apply bg-primaryA0 text-white;
+    }
+    .headerDetails{
+        display: flex;
+    }
+/*     .cardHeader img{
+        transform: translate(10px,-10px);
+    } */
+}
+
+.cardHeader{
+    position: relative;
+    @apply bg-surfaceA10 flex justify-center py-10;
+    img{
+        max-width: 100%;
+    }
+    button{
+        position: absolute;
+        margin-bottom: 10px;
+        bottom: 0;
+    }
+    .headerDetails{
+        position: absolute;
+        top: 0;
+        left: 0;
+        @apply gap-6 py-4 px-4 text-2xl text-secondaryA0;
+        span{
+            @apply cursor-pointer p-2;
+        }
+    }
+    .headerDetails span:hover{
+            @apply bg-surfaceA40 rounded-full ;
+    }
+}
+.cardBody{
+    @apply flex flex-col justify-center items-center gap-2 pt-2 text-primaryA10 font-medium;
+    h6{
+        @apply text-surfaceA50 font-bold;
+    }
+}
+
+
+
+.cardHeader3{
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    img{
+        @apply rounded-full bg-surfaceA10 p-3 w-full;
+        position: relative;
+        z-index: 2;
+        transition: transform 0.2s ease-in-out;
+    }
+    button{
+        position: absolute;
+        @apply mx-auto inset-x-0;
+        width: fit-content;
+        z-index: 2;
+        transform: translate(5px,5px);
+        margin-bottom: 10px;
+        bottom: 10%;
+    }
+}
+.cardHeader3:before{
+    content: "";
+    @apply rounded-full inset-0 bg-secondaryA0;
+    padding: 5;
+    z-index: 1;
+    position: absolute;
+    margin: 1px;
+}
+.card:hover{
+    .cardHeader3{
+        img{
+            transform: translate(5px,-5px);
+        }
+    }
+}

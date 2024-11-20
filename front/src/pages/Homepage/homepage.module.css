@@ -1,0 +1,10 @@
+.homepage{
+    position: relative;
+}
+.bulb{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 15%;
+    aspect-ratio: 1;
+}

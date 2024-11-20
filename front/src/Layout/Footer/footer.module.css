@@ -1,0 +1,21 @@
+.footerForm{
+    position: relative;
+    display: flex;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: fit-content;
+    input{
+        @apply max-w-full w-full border  focus-visible:outline-none py-1  ps-2 pe-5;
+        border: 0;
+    }
+    button{
+        @apply py-1 px-3 rounded-r-md text-center;
+        height: 100%;
+        background-color: rgba(var(--surface-a50));
+        color: white;
+        text-wrap: nowrap;
+    }
+}
+h1,h2,h3,h4,h5,h6{
+    @apply text-primaryA10;
+}

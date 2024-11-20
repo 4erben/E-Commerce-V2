@@ -1,0 +1,32 @@
+
+.dropdown{
+    position: relative;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    button{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 3px;
+        text-transform: capitalize;
+    }
+}
+.dropdownMenu{
+    display: none;
+    gap: 5px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    z-index: 3;
+    @apply bg-surfaceA0/90 p-2 ring-2 ring-secondaryA10 mt-3 rounded-lg;
+}
+.dropdownMenu.dropped{
+    display: flex;
+    /* flex-direction: column; */
+
+}
+.dropdownMenu>li:hover{
+    cursor: pointer;
+}
