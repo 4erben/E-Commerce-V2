@@ -8,6 +8,7 @@ import Home from "./pages/Homepage/Home.page";
 import ShopPage from "./pages/ShopPage/Shop.page";
 import ProductPage from "./pages/ProductPage/Product.page";
 import ShoppingCart from "./pages/CartPage/ShoppingCart.page";
+
 function App() {
   const isDark = useSelector(state=>state.appUI.isDark);
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
-import sofa from "../../../assets/images/sofa.png";
 import { BsCircleFill } from "react-icons/bs";
 import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
 import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';

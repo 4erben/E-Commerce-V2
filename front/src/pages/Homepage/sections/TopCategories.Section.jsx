@@ -1,6 +1,5 @@
 import React from 'react'
 import Swiper from '../../../components/swiper/Swiper'
-import product from "../../../assets/images/product.png";
 import Card3 from '../../../components/card/Card3';
 import { MdCircle } from "react-icons/md";
 import useTopCategoriesProducts from '../../../utils/react-query-hooks/useTopCategoriesProducts';

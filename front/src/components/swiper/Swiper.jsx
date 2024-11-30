@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import Card from '../card/Card';
+import React, { Suspense, useCallback, useState } from 'react';
+const Card = React.lazy(()=> import('../card/Card'));
 import { CgLoadbar } from "react-icons/cg";
+import Spinner from '../Spinner/Spinner';
 
-export default function Swiper(
+const Swiper = React.memo((
     {
     products=[],
     itemsPerView = 4,
     cols =itemsPerView,
     productComponent:ProductComponent=Card,
     swiperComponent:SwiperComponent=CgLoadbar
-    }){
+    })=>{
     const [currentIndex, setCurrentIndex] = useState(0);
     const ProductComponentMemoized = React.memo(ProductComponent);
     const totalPages = Math.ceil(products.length / itemsPerView ) ;
-    const handlePage = (index)=>{
+    const handlePage = useCallback((index) => {
         setCurrentIndex(index * itemsPerView);
-    }
-    const slicedProducts = products.slice(currentIndex, currentIndex+itemsPerView);
+    }, [itemsPerView]);
+    
+    const slicedProducts = products?.slice(currentIndex, currentIndex+itemsPerView);
+    
     return (
         <>
         <div className={` grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-${cols} w-full gap-5`}>
-            {slicedProducts.map((p)=>{
+        <Suspense  fallback={<Spinner />}>
+            {slicedProducts && slicedProducts?.map((p)=>{
             return(
-                <ProductComponentMemoized product={p} key={p.id}/>
+                <ProductComponentMemoized key={p.id} product={p}/>  
             )})}
+        </Suspense>
         </div>
         <div className='flex justify-center mt-5 gap-5'>
             {Array.from({length:totalPages}).map((_,i)=>{
@@ -39,4 +44,6 @@ export default function Swiper(
         </div>
         </>
         );
-}
+});
+
+export default Swiper;

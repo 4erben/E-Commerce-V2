@@ -1,5 +1,4 @@
 import React from 'react';
-import product from "../../../assets/images/product.png";
 import offProduct from "../../../assets/images/offproduct.png";
 import Card2 from '../../../components/card/Card2';
 import Swiper from '../../../components/swiper/Swiper';
@@ -22,33 +21,33 @@ export default function TrendingSection() {
                     <h4 className='text-2xl'>23% of in all products</h4>
                     <div className='flex'>
                         <span className='underline text-nowrap text-surfaceA50 font-bold'>shop now</span>
-                        <img src={offProduct} className='max-w-full'/>
+                        <img src={offProduct} className='max-w-full' alt='sale product'/>
                     </div>
                 </div>
                 <div className='bg-surfaceA30 px-5 py-4'>
                     <h4 className='text-2xl'>23% of in all products</h4>
                     <div className='flex'>
                         <span className='underline text-nowrap text-surfaceA50 font-bold'>view collection</span>
-                        <img src={offProduct} className='max-w-full'/>
+                        <img src={offProduct} className='max-w-full' alt='sale product'/>
                     </div>
                 </div>
                 <div className='px-5 py-4 flex flex-col gap-3'>
                     <div className='grid grid-cols-3 items-center gap-3 '>
-                        <img src={offProduct} className='col-span-1 bg-surfaceA30'/>
+                        <img src={offProduct} className='col-span-1 bg-surfaceA30' alt='sale product'/>
                         <div className='col-span-2'>
                             <p>Executive Seat chair</p>
                             <span>$32.00</span>
                         </div>
                     </div>
                     <div className='grid grid-cols-3 items-center gap-3'>
-                        <img src={offProduct} className='col-span-1 bg-surfaceA30'/>
+                        <img src={offProduct} className='col-span-1 bg-surfaceA30' alt='sale product'/>
                         <div className='col-span-2'>
                             <p>Executive Seat chair</p>
                             <span>$32.00</span>
                         </div>
                     </div>
                     <div className='grid grid-cols-3 items-center gap-3'>
-                        <img src={offProduct} className='col-span-1 bg-surfaceA30'/>
+                        <img src={offProduct} className='col-span-1 bg-surfaceA30' alt='sale product'/>
                         <div className='col-span-2'>
                             <p>Executive Seat chair</p>
                             <span>$32.00</span>

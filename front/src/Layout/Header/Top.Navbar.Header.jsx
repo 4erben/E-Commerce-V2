@@ -37,7 +37,7 @@ export default function Top() {
                     <h1 className="capitalize font-bold">hekto </h1>
                 </div>
                 <div className='flex items-center'>
-                    <button onClick={handleSwitchTheme}>
+                    <button onClick={handleSwitchTheme} aria-label='night mode switch' >
                     {!isDark ? 
                         <MdDarkMode size={20} color='#321f49'/> 
                         :
@@ -46,13 +46,14 @@ export default function Top() {
                     </button>
                 </div>
                 <div className='lg:hidden'>
-                    <Link to="/cart">
+                    <Link to="/cart" aria-label='cart link'>
                     <span >
                         <AiOutlineShoppingCart />
                     </span>
                     </Link>
                 </div>
                 <button 
+                    aria-label='switch sidebar'
                     className='block lg:hidden px-2 py-1 rounded-md  hover:ring-2 hover:ring-primaryA30'
                     onClick={handleToggleSidebar}>
                     <FaBars />
@@ -69,7 +70,7 @@ export default function Top() {
                         <span><CiHeart /></span>
                     </li>
                     <li className='hidden lg:block'>
-                        <Link to="/cart">
+                        <Link to="/cart" aria-label='cart link'>
                         <span >
                             <AiOutlineShoppingCart />
                         </span>

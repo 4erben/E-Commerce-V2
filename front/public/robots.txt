@@ -1,0 +1,14 @@
+# Allow all search engines to crawl the entire site
+User-agent: *
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /user/
+
+# Prevent search engines from indexing private or unnecessary pages
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+
+# Allow the search engines to crawl the product pages and categories
+Allow: /shop/
+Allow: /category/

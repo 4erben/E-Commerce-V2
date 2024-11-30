@@ -10,25 +10,7 @@ export default {
       fontFamily:{
         josefin: ["Josefin Sans", "sans-serif"],
         lato:["Lato", "sans-serif"]
-      }
-      ,
-/*       colors: {
-        pink: "rgba(var(--pink))",
-        red: "rgba(var(--red))",
-        blue: "rgba(var(--blue))",
-        offNavy: "rgba(var(--offNavy))",
-        navy: "rgba(var(--navy))",
-        skyBlue: "rgba(var(--skyBlue))",
-        pantone: "rgba(var(--pantone))",
-        purple: "rgba(var(--purple))",
-        offPurple: "rgba(var(--offPurple))",
-        offBlue: "rgba(var(--offBlue))",
-        light:"rgba(var(--light))",
-        white:"rgba(var(--white))",
-        shade:"rgba(var(--shade))",
-        bgFooter:"rgba(var(--footer-bg))",
-        bgBottom:"rgba(var(--footer-bottom))", 
-      }, */
+      },
       colors: {
         primaryA0: "rgba(var(--primary-a0))", // 47, 26, 196
         primaryA10: "rgba(var(--primary-a10))", // 13, 14, 67

@@ -8,4 +8,10 @@ dotenv.config();
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    minify: true,
+  },
+  optimizeDeps: {
+    include: ["@tailwindcss/forms", "@tailwindcss/typography"], // Example for including useful plugins
+  },
 })

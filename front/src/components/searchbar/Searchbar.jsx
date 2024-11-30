@@ -5,11 +5,13 @@ export default function Searchbar() {
   return (
     <div className={styles.searchbar}>
         <input
-            type='text'
-            placeholder='' 
-            className=''
+          aria-label='Search input'
+          id='searchbar'
+          type='text'
+          placeholder='' 
+          className=''
         />
-        <button>
+        <button aria-label='search button '>
             <IoSearch />
         </button>
     </div>
