@@ -5,7 +5,7 @@ import Header from "./Layout/Header/Header"
 import "./assets/styles/App.css"
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Homepage/Home.page";
-import ShopPage from "./pages/ShopPage/Shop.Page";
+import ShopPage from "./pages/ShopPage/Shop.page";
 import ProductPage from "./pages/ProductPage/Product.page";
 import ShoppingCart from "./pages/CartPage/ShoppingCart.page";
 function App() {
