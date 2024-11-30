@@ -9,6 +9,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { useDispatch } from 'react-redux';
 import { switchSidebar, switchTheme } from '../../redux/Slices/appUI.slice';
 import Dropdown from '../../components/dropdown/Dropdown';
+import { Link } from 'react-router-dom';
 export default function Top() {
     const isDark = useSelector(state=>state.appUI.isDark);
     const dispatch = useDispatch();
@@ -45,9 +46,11 @@ export default function Top() {
                     </button>
                 </div>
                 <div className='lg:hidden'>
+                    <Link to="/cart">
                     <span >
                         <AiOutlineShoppingCart />
                     </span>
+                    </Link>
                 </div>
                 <button 
                     className='block lg:hidden px-2 py-1 rounded-md  hover:ring-2 hover:ring-primaryA30'
@@ -66,9 +69,11 @@ export default function Top() {
                         <span><CiHeart /></span>
                     </li>
                     <li className='hidden lg:block'>
-                        <span>
+                        <Link to="/cart">
+                        <span >
                             <AiOutlineShoppingCart />
                         </span>
+                        </Link>
                     </li>
                 </ul>
             </div>

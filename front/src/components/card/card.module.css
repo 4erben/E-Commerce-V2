@@ -1,5 +1,9 @@
 .card{
-
+    @apply text-center;
+    img{
+        height: 100px;
+        width: 100px;
+    }
 }
 .card:hover{
     .cardHeader button{
@@ -55,9 +59,15 @@
 .cardHeader3{
     position: relative;
     display: flex;
+    max-width: 150px;
+    max-height: 150px;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.5s ease-in-out;
     img{
-        @apply rounded-full bg-surfaceA10 p-3 w-full;
+        @apply rounded-full bg-surfaceA10 p-3 ;
+        width: 100% !important;
+        height: 100% !important;
         position: relative;
         z-index: 2;
         transition: transform 0.2s ease-in-out;
@@ -76,6 +86,8 @@
     content: "";
     @apply rounded-full inset-0 bg-secondaryA0;
     padding: 5;
+/*     width: 100px;
+    height: 100px; */
     z-index: 1;
     position: absolute;
     margin: 1px;

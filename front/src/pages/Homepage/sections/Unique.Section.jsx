@@ -2,13 +2,20 @@ import React from 'react'
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
 import sofa from "../../../assets/images/sofa.png";
 import { BsCircleFill } from "react-icons/bs";
+import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 
 export default function UniqueSection() {
+    const productId = "6748a3102492e231bb92f59c";
+    const {data,isLoading,isError,error} = useSingleProduct(productId);
+
   return (
     <section className='bg-surfaceA30 py-10 w-full px-10'> 
         <div className='max-w-screen-lg grid grid-cols-1 md:grid-cols-5 mx-auto gap-4'>
             <div className='col-span-2 flex justify-center'>
-                <FeaturedProduct  product={sofa} single={true}/>
+                <ErrorBoundary isLoading={isLoading} isError={isError} error={error}>
+                    <FeaturedProduct  product={data?.data} single={true}/>
+                </ErrorBoundary>
             </div>
             <div className='flex flex-col  justify-center col-span-3 gap-4'>
                 <h3 className='text-3xl mb-4'>

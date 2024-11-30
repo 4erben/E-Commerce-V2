@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import styles from "./header.module.css";
 import Top from './Top.Navbar.Header';
-import { FaChevronDown } from 'react-icons/fa6';
 import Searchbar from '../../components/searchbar/Searchbar';
-import Dropdown from '../../components/dropdown/Dropdown';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
@@ -19,11 +18,15 @@ export default function Navbar() {
             </div>
             <div className='col-span-6'>
               <ul className={`${styles.optionsMenu}`}>
-                <Dropdown title="home" items={["home","page","other"]} menuStyle='bg-transparent '/>
                 <li>
-                  <span>
-                    pages
-                  </span>
+                  <Link to="/">
+                    home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/shop">
+                    shop
+                  </Link>
                 </li>
                 <li>
                   <span>

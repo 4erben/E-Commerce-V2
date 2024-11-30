@@ -1,9 +1,17 @@
 import React from 'react';
 import { MdDone } from "react-icons/md";
-import discount from "../../../assets/images/discount.png";
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
+import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
+
+
 
 export default function DiscountSection() {
+
+    const productId = "6748a3102492e231bb92f598";
+    const {data,isLoading,isError,error} = useSingleProduct(productId);
+
+    
   return (
     <section className='py-10 grow '>
         <div className='max-w-screen-lg flex flex-col justify-center items-center grow mx-auto px-10'>
@@ -34,7 +42,10 @@ export default function DiscountSection() {
                 </div>
             </div>
             <div className=''>
-                    <FeaturedProduct product={discount} single={true} className={`mx-auto`}/>
+                <ErrorBoundary isError={isError} isLoading={isLoading} error={error}>
+                    <FeaturedProduct product={data?.data} single={true} className={`mx-auto`}/>
+                </ErrorBoundary>
+                    
             </div>
         </div>
         </div>

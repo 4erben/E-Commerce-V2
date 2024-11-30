@@ -1,100 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import product from "../../../assets/images/product.png";
 import Card from '../../../components/card/Card';
 import Swiper from "../../../components/swiper/Swiper.jsx";
+import useFeaturedProducts from '../../../utils/react-query-hooks/useFeaturedProducts.jsx';
+
+
 
 export default function FeaturedHomeSection() {
-    const products = [
-        {   
-            id:1,
-            img:product,
-            title:"Cantilever chair1",
-            code:"Y523201",
-            price:42
-        },
-        {   
-            id:2,
-            img:product,
-            title:"Cantilever chair2",
-            code:"Y523201",
-            price:42
-        },
-        {   
-            id:3,
-            img:product,
-            title:"Cantilever chair3",
-            code:"Y523201",
-            price:42
-        },
-        {   
-            id:4,
-            img:product,
-            title:"Cantilever chair4",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:5,
-            img:product,
-            title:"Cantilever chair5",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:6,
-            img:product,
-            title:"Cantilever chair6",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:7,
-            img:product,
-            title:"Cantilever chair7",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:8,
-            img:product,
-            title:"Cantilever chair7",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:9,
-            img:product,
-            title:"Cantilever chair7",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:10,
-            img:product,
-            title:"Cantilever chair7",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:11,
-            img:product,
-            title:"Cantilever chair7",
-            code:"Y523201",
-            price:42
-        },  
-        {   
-            id:12,
-            img:product,
-            title:"Cantilever chair7",
-            code:"Y523201",
-            price:42
-        },  
-    ]
+    const [pageNumber,setPageNumber] = useState(1);
+    const [perPage,setPerPage] = useState(4);
+    const {data,isLoading,isError,error,isFetching} = useFeaturedProducts(pageNumber,perPage);
+    if(isLoading){
+        return(
+            <div className="flex items-center justify-center py-10">
+            <div className="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+            </div>
+        )
+    }
+    if(isError){
+        return <div>{error.message}</div>
+    }
   return (
     <section className='py-10 grow w-full'>
         <div className='max-w-screen-lg grow mx-auto flex flex-col items-center'>
             <h1 className='text-3xl font-bold mb-6'>Featured Products</h1>
-            <Swiper  products={products} itemsPerView={4}  cols={4}/>
+            <Swiper  products={data?.data} pagination={data?.data?.pagination} itemsPerView={perPage}  cols={4} setPageNumber={setPageNumber} setPerPage={setPerPage}/>
         </div>
     </section>
   )

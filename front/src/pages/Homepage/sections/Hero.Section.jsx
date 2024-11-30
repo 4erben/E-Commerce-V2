@@ -1,12 +1,17 @@
 import React from 'react'
-import chair from "../../../assets/images/bedroomchair.png";
 import styles from "../homepage.module.css";
 import bulb from "../../../assets/images/bulb.png";
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
+import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 export default function HomeHeroSection() {
+
+
+  const productId = "6748a3102492e231bb92f59b";
+  const {data,isLoading,isError,error} = useSingleProduct(productId);
+
   return (
     <>
-    
     <img alt='bulb image' className={`${styles.bulb} right-0 lg:left-0`} src={bulb} />
     <section className='bg-surfaceA30 grow w-full '>
       <div className='grid grid-cols-1  lg:grid-cols-2 max-w-screen-lg py-20 px-16 relative z-10 gap-10 mx-auto'>
@@ -22,9 +27,10 @@ export default function HomeHeroSection() {
           </button>
         </div>
         <div className='hidden md:flex justify-center'>
-          <FeaturedProduct product={chair} />
+        <ErrorBoundary isLoading={isLoading} isError={isError} error={error}>
+          <FeaturedProduct product={data?.data} />
+        </ErrorBoundary>
         </div>
-        
       </div>
       </section>
     </>

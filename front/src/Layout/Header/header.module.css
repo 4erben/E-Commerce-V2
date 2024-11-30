@@ -41,7 +41,10 @@
     position: relative;
 }
 .optionsMenu{
-@apply lg:flex hidden gap-5  shrink-0 grow-0 ;
+@apply lg:flex hidden gap-5  shrink-0 grow-0;
+li:hover{
+    @apply text-primaryA30 cursor-pointer;
+}
 }
 
 

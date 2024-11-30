@@ -5,6 +5,9 @@ import Header from "./Layout/Header/Header"
 import "./assets/styles/App.css"
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Homepage/Home.page";
+import ShopPage from "./pages/ShopPage/Shop.Page";
+import ProductPage from "./pages/ProductPage/Product.page";
+import ShoppingCart from "./pages/CartPage/ShoppingCart.page";
 function App() {
   const isDark = useSelector(state=>state.appUI.isDark);
 
@@ -14,6 +17,9 @@ function App() {
     <main>
       <Routes>
         <Route  path="/" element={<Home />}/>
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/product/:_id" element={<ProductPage />} />
+        <Route path="/cart" element={<ShoppingCart />} />
       </Routes>
       
     </main>

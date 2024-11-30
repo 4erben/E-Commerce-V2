@@ -11,6 +11,7 @@ export default function Swiper(
     swiperComponent:SwiperComponent=CgLoadbar
     }){
     const [currentIndex, setCurrentIndex] = useState(0);
+    const ProductComponentMemoized = React.memo(ProductComponent);
     const totalPages = Math.ceil(products.length / itemsPerView ) ;
     const handlePage = (index)=>{
         setCurrentIndex(index * itemsPerView);
@@ -21,7 +22,7 @@ export default function Swiper(
         <div className={` grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-${cols} w-full gap-5`}>
             {slicedProducts.map((p)=>{
             return(
-                <ProductComponent title={p.title} product={p.product} price={p.price} code={p.code} img={p.img} key={p.id}/>
+                <ProductComponentMemoized product={p} key={p.id}/>
             )})}
         </div>
         <div className='flex justify-center mt-5 gap-5'>
