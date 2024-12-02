@@ -1,8 +1,8 @@
 import React from 'react';
-import delivery from "../../../assets/images/freedelivery.png";
-import cashback from "../../../assets/images/cashback.png";
-import premium from "../../../assets/images/premium.png";
-import allday from "../../../assets/images/24hours.png";
+import delivery from "../../../assets/images/freedelivery.webp";
+import cashback from "../../../assets/images/cashback.webp";
+import premium from "../../../assets/images/premium.webp";
+import allday from "../../../assets/images/24hours.webp";
 
 export default function ShopexHomeSection() {
   return (

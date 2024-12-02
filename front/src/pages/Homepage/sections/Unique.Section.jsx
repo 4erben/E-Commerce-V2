@@ -1,12 +1,12 @@
 import React from 'react'
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
 import { BsCircleFill } from "react-icons/bs";
-import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
 import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
+import useGetProductByTitle from '../../../utils/react-query-hooks/useGetProductByTitle';
 
 export default function UniqueSection() {
-    const productId = "6748a3102492e231bb92f59c";
-    const {data,isLoading,isError,error} = useSingleProduct(productId);
+    const title = "Annibale Colombo Bed";
+    const {data,isLoading,isError,error} = useGetProductByTitle(title);
 
   return (
     <section className='bg-surfaceA30 py-10 w-full px-10'> 

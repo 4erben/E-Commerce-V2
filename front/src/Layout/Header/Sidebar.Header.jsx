@@ -7,6 +7,7 @@ import { FaChevronDown ,FaPhoneVolume} from 'react-icons/fa6';
 import { CiHeart, CiUser ,CiMail } from 'react-icons/ci';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import Dropdown from '../../components/dropdown/Dropdown';
+import { Link } from 'react-router-dom';
 export default function Sidebar() {
     const isExpanded = useSelector(state=>state.appUI.isExpanded);
     const dispatch = useDispatch();
@@ -15,8 +16,11 @@ export default function Sidebar() {
     }
   return (
     <aside id={styles.sidebar} className={`${isExpanded &&styles.expanded} px-4 flex flex-col`}>
-        <div className='pt-5 px-2 flex justify-between items-center text-2xl capitalize font-bold' >
-          <h1>hekto</h1>
+        <div className='pt-5 px-2 flex justify-between items-center text-2xl capitalize font-bold'>
+          <Link to="/">
+            <h2>hekto</h2>
+          </Link>
+          
           <span onClick={handleCloseSideBar} className='cursor-pointer'><IoMdClose /></span>
         </div>
         <hr className='my-2 border-2'/>

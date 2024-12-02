@@ -12,9 +12,11 @@ export default function Navbar() {
     <nav id={styles.navbar} className='justify-center hidden lg:flex'>
         <div className='max-w-screen-lg grid grid-cols-12  py-3  grow text-primaryA10 capitalize items-center px-3'>
             <div className='col-span-2'>
-              <h3 className='text-3xl font-bold'>
+              <Link to="/">
+              <h2 className='text-3xl font-bold'>
                 hekto
-              </h3>
+              </h2>
+              </Link>
             </div>
             <div className='col-span-6'>
               <ul className={`${styles.optionsMenu}`}>

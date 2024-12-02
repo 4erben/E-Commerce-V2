@@ -1,5 +1,5 @@
 import React from 'react';
-import newsletter from "../../../assets/images/newsletter.png";
+import newsletter from "../../../assets/images/newsletter.webp";
 
 export default function NewsletterSection() {
   return (

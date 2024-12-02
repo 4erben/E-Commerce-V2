@@ -1,4 +1,4 @@
-function getRecentCreatedProducts(products,day =7) {
+function getRecentCreatedProducts(products,day =100) {
     const currentDate = new Date();
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(currentDate.getDate() - day); // Set the date to 7 days ago

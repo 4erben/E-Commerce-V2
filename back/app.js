@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/mongoose");
+const Product = require("./models/products.model");
+const products = require("./data");
 
 
 const app = express();
@@ -14,6 +16,7 @@ const categoriesRouter = require("./routes/categories.route");
 //use middlewares on the entire app
 app.use(express.json());
 app.use(cors());
+
 
 
 app.use("/products",productsRouter);

@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PageAddress from '../../components/PageAddress/PageAddress'
 import { useParams } from 'react-router-dom'
-import useSingleProduct from '../../utils/react-query-hooks/useSingleProduct';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
-
 import HeroProductSection from './sections/HeroProduct.section';
 import InfoProductSection from './sections/ProductReviews';
+import useGetProductById from '../../utils/react-query-hooks/useGetProductById';
 export default function ProductPage() {
     const {_id} = useParams();
-    const {data,isLoading,isError,error} = useSingleProduct(_id,)
-
+    const {data,isLoading,isError,error} = useGetProductById(_id)
   return (
     <div>
         <PageAddress address={"Product Details"} />

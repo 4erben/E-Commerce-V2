@@ -1,15 +1,15 @@
 import React from 'react';
 import { MdDone } from "react-icons/md";
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
-import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
 import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
+import useGetProductByTitle from '../../../utils/react-query-hooks/useGetProductByTitle';
 
 
 
 export default function DiscountSection() {
 
-    const productId = "6748a3102492e231bb92f598";
-    const {data,isLoading,isError,error} = useSingleProduct(productId);
+    const title = "Wooden Bathroom Sink With Mirror";
+    const {data,isLoading,isError,error} = useGetProductByTitle(title);
 
     
   return (

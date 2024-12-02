@@ -7,7 +7,7 @@ const fetchSingleProduct = (_id)=>{
     return axios.get(`${import.meta.env.VITE_API_URL}/products/single/${_id}`);
 }
 
-const useSingleProduct = (_id,onSuccess,onError)=>{
+const useGetProductById = (_id,onSuccess,onError)=>{
     return useQuery(
         ["product",_id],
         ()=>fetchSingleProduct(_id),
@@ -18,4 +18,4 @@ const useSingleProduct = (_id,onSuccess,onError)=>{
     )
 }
 
-export default useSingleProduct;
+export default useGetProductById;

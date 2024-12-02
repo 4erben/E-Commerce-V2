@@ -1,5 +1,5 @@
 import React from 'react';
-import offProduct from "../../../assets/images/offproduct.png";
+import offProduct from "../../../assets/images/offproduct.webp";
 import Card2 from '../../../components/card/Card2';
 import Swiper from '../../../components/swiper/Swiper';
 import useBestSellerProducts from '../../../utils/react-query-hooks/useBestSellerProducts';

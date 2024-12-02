@@ -1,22 +1,47 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PageAddress from '../../components/PageAddress/PageAddress'
 import usePaginatedProducts from '../../utils/react-query-hooks/usePaginatedProducts'
 import Card2 from '../../components/card/Card2';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import useFetchCategories from '../../utils/react-query-hooks/useFetchCategories';
 import useMostExpensive from '../../utils/react-query-hooks/useMostExpensive';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function ShopPage() {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [page,setPage] = useState(1);
     const [myProducts,setMyProducts] = useState([]);
     const [price , setPrice] = useState(0);
+    const [title , setTitle] = useState(location.state || "");
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const {data={data:{products:[],pagination:{page:1,totalPages:1}}},isLoading,isError,error} = usePaginatedProducts(page,12,selectedCategories,price,onSuccess,);
+    const query = {
+        pageNumber:page,
+        perPage:12,
+        categories:selectedCategories,
+        price:price,
+        title:title
+    }
+    const {data={data:{products:[],pagination:{page:1,totalPages:1}}},isLoading,isError,error} = usePaginatedProducts(query,onSuccess); 
     const {data:categories ,isLoading:catIsLoading,isError:catIsError,error:catError} = useFetchCategories();
     const {data:mostExpensive,isLoading:mostIsLoading,isError:mostIsError,error:mostError} = useMostExpensive(onMostSuccess);
     const { pagination } = data.data;
-    
 
+    useEffect(()=>{
+        if(location.state !== null){
+            setTitle(location.state);
+        }else{
+            setTitle("");
+        }
+        
+    },[location]);
+
+    useEffect(()=>{
+        if(location.state){
+            navigate(location.pathname,{replace:true})
+        }
+    },[ navigate])
+    
     function onMostSuccess(data){    
         setPrice(Math.ceil(data.data.price));
     }
@@ -35,9 +60,6 @@ export default function ShopPage() {
         }
         });
     };
-    const handleFilter = (e)=>{
-
-    }
     
   return (
     <div>
@@ -52,10 +74,14 @@ export default function ShopPage() {
                         <span>{pagination.total}</span>
                     </p>
                     <p className='flex gap-1'>
-                        <span className='font-semibold'>page:</span> 
+                        <span className='font-semibold'>total pages:</span>
+                        <span>{pagination.totalPages}</span>
+                    </p>
+                    <p className='flex gap-1'>
+                        {/* <span className='font-semibold'>page:</span>  */}
                         <select onChange={(e)=>{setPage(e.target.value)}} value={page}>
                             {Array.from({length:pagination.totalPages}).map((_,i)=>{
-                                return <option key={i} value={i+1}>{i+1}</option>
+                                return <option key={i} value={i+1} className='font-semibold'>Page: {i+1}</option>
                             })}
                         </select>
                     </p>
@@ -67,6 +93,12 @@ export default function ShopPage() {
                 <ErrorBoundary isLoading={catIsLoading} isError={catIsError} error={catError}>
                 <div className=' flex-col gap-5 px-2 flex' >
                     <h3>Filter</h3>
+                    {title && 
+                        <div>
+                            <span className='text-xs border p-1'>{title}</span>
+                        </div>
+                    }
+                    
                     <div>
                         <h4 className='underline font-bold mb-2'>Categories</h4>
                         <div className='flex flex-wrap gap-2 sm:gap-2 sm:flex-col'>

@@ -9,7 +9,7 @@ const appUI = createSlice({
     },
     reducers:{
         switchSidebar:(state,action)=>{
-            state.isExpanded = !state.isExpanded;  
+            state.isExpanded = !state.isExpanded;
         },
         switchTheme:(state,action)=>{
             state.isDark = !state.isDark;

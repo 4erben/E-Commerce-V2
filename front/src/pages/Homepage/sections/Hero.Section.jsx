@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from "../homepage.module.css";
-import bulb from "../../../assets/images/bulb.png";
+import bulb from "../../../assets/images/bulb.webp";
 import FeaturedProduct from '../../../components/FeaturedProduct/FeaturedProduct';
-import useSingleProduct from '../../../utils/react-query-hooks/useSingleProduct';
 import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
+import useGetProductByTitle from '../../../utils/react-query-hooks/useGetProductByTitle';
 export default function HomeHeroSection() {
 
 
-  const productId = "6748a3102492e231bb92f59b";
-  const {data,isLoading,isError,error} = useSingleProduct(productId);
+  const productId = "Knoll Saarinen Executive Conference Chair";
+  const {data,isLoading,isError,error} = useGetProductByTitle(productId);
 
   return (
     <>

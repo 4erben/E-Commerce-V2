@@ -10,7 +10,7 @@ const getTopProductsByCategory = require("../utils/getTopProductsByCategory");
 
 router.get("/",async(req,res)=>{
     try{
-    const {limit = 8, page = 1 ,categories, maxPrice} = req.query;
+    const {limit = 8, page = 1 ,categories, maxPrice ,title =""} = req.query;
     // Ensure limit and page are numbers and positive
     const parsedLimit = Math.max(1, parseInt(limit, 10));  // Minimum limit is 1
     const parsedPage = Math.max(1, parseInt(page, 10));    // Minimum page is 1
@@ -26,6 +26,9 @@ router.get("/",async(req,res)=>{
     if(maxPrice){
         query.price = { $lt:Number(maxPrice) }
     };
+    if(title){
+        query.title ={$regex: `^${title}`,$options:"i"}
+    }
     const products = await Product.find(query)
     .skip(skip)
     .limit(parsedLimit);
@@ -52,12 +55,24 @@ router.get("/single/:_id",async(req,res)=>{
     if (!mongoose.Types.ObjectId.isValid(_id)) {
         return res.status(400).json({ message: 'Invalid product ID' });
     }
-    try{  
+    try{
         const product = await Product.findById(_id);
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
         }
-        res.status(201).json(product);
+        res.status(200).json(product);
+    }catch(e){
+        res.status(400).json(e);
+    }
+})
+router.get("/single",async(req,res)=>{
+    const {title} = req.query;
+    try{
+        const product = await Product.findOne({title:{$regex: `^${title}`,$options:"i"}});
+        if(!product){
+            return res.status(404).json({message: "Product not found"});
+        }
+        res.status(200).json(product)
     }catch(e){
         res.status(400).json(e);
     }
