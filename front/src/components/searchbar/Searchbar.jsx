@@ -8,9 +8,12 @@ export default function Searchbar() {
 
   const handleSubmit = (e)=>{
     e.preventDefault();
+    localStorage.setItem("searchTitle",title);
     navigate("/shop",{state:title})
   }
-
+  useEffect(()=>{
+    setTitle(localStorage.getItem("searchTitle"))
+  },[])
  
   return (
     <form className={styles.searchbar} onSubmit={handleSubmit}>

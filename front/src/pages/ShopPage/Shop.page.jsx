@@ -36,12 +36,6 @@ export default function ShopPage() {
         
     },[location]);
 
-    useEffect(()=>{
-        if(location.state){
-            navigate(location.pathname,{replace:true})
-        }
-    },[ navigate])
-    
     function onMostSuccess(data){    
         setPrice(Math.ceil(data.data.price));
     }

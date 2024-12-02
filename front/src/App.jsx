@@ -11,8 +11,10 @@ import ShoppingCart from "./pages/CartPage/ShoppingCart.page";
 import NotFoundPage from "./pages/NotFoundPage/NotFound.page";
 
 
+
 function App() {
   const isDark = useSelector(state=>state.appUI.isDark);
+
   return (
   <div className="App font-josefin min-h-screen flex flex-col bg-surfaceA20" data-theme={`${isDark? "dark":"light"}`}>
     <Header/>
