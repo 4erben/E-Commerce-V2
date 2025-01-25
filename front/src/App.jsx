@@ -9,6 +9,9 @@ import ShopPage from "./pages/ShopPage/Shop.page";
 import ProductPage from "./pages/ProductPage/Product.page";
 import ShoppingCart from "./pages/CartPage/ShoppingCart.page";
 import NotFoundPage from "./pages/NotFoundPage/NotFound.page";
+import WishlishPage from "./pages/WishlistPage/Wishlist.page";
+import LoginPage from "./pages/AuthPages/LoginPage/Login.Page";
+import RegisterPage from "./pages/AuthPages/RegisterPage/Register.page";
 
 
 
@@ -24,9 +27,11 @@ function App() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/product/:_id" element={<ProductPage />} />
         <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/wishlist" element={<WishlishPage />} />
+        <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/auth/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage/>} />
       </Routes>
-      
     </main>
     <Footer/>
   </div>

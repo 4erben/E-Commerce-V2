@@ -13,7 +13,7 @@ export default function ShopPage() {
     const [page,setPage] = useState(1);
     const [myProducts,setMyProducts] = useState([]);
     const [price , setPrice] = useState(0);
-    const [title , setTitle] = useState(location.state || "");
+    const [title , setTitle] = useState(location.state?.title || "");
     const [selectedCategories, setSelectedCategories] = useState([]);
     const query = {
         pageNumber:page,
@@ -28,10 +28,11 @@ export default function ShopPage() {
     const { pagination } = data.data;
 
     useEffect(()=>{
-        if(location.state !== null){
-            setTitle(location.state);
+        if(location.state?.title !== null){
+            setTitle(location.state?.title);
         }else{
             setTitle("");
+            localStorage.removeItem("searchTitle")
         }
         
     },[location]);
@@ -84,7 +85,7 @@ export default function ShopPage() {
             </div>
             {/* second Section */}
             <div className='grid grid-cols-1 sm:grid-cols-5 ps-2 md:pe-20 pe-0  mb-10 gap-10'>
-                <ErrorBoundary isLoading={catIsLoading} isError={catIsError} error={catError}>
+                <ErrorBoundary isLoading={catIsLoading || mostIsLoading} isError={catIsError || mostIsError} error={catError || mostError}>
                 <div className=' flex-col gap-5 px-2 flex' >
                     <h3>Filter</h3>
                     {title && 
@@ -121,16 +122,22 @@ export default function ShopPage() {
                         max={Math.ceil(mostExpensive?.data.price)} 
                         value={price} 
                         onChange={(e)=>(setPrice(e.target.value))}/>
-                        <label htmlFor='price'>{price}</label>
+                        <input value={price} onChange={(e)=>setPrice(e.target.value)}/>
                     </div>
                     {/* <button className='btn' onClick={refetch}>filter</button> */}
                 </div>
                 </ErrorBoundary>
+                {/* products */}
                 <ErrorBoundary isLoading={isLoading} isError={isError} error={error}>
                     <div className={`col-span-1 sm:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-5 h-fit`}>
-                        {myProducts.map((p)=>{
+                        {pagination.total ? myProducts.map((p)=>{
                         return <Card2  key={p._id} product={p}/>
-                        })}
+                        })
+                    :
+                    <div className=''>
+                        <h3 className='text-center'>No Products Found</h3>
+                    </div>
+                    }
                     </div>
                 </ErrorBoundary>
                 </div>

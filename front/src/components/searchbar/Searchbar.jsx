@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./searchbar.module.css";
 import { IoSearch } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 export default function Searchbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [title,setTitle] = useState("");
 
   const handleSubmit = (e)=>{
     e.preventDefault();
     localStorage.setItem("searchTitle",title);
-    navigate("/shop",{state:title})
+    navigate("/shop",{state:{title}})
   }
-  useEffect(()=>{
+/*   useEffect(()=>{
     setTitle(localStorage.getItem("searchTitle"))
-  },[])
- 
+  },[]) */
+ useEffect(()=>{
+  if(location.pathname === "/shop" && location.state?.title){
+    setTitle(localStorage.getItem("searchTitle"))
+  }
+ },[location])
   return (
     <form className={styles.searchbar} onSubmit={handleSubmit}>
         <input

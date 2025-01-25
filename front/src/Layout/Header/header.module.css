@@ -43,12 +43,12 @@
 .optionsMenu{
 @apply lg:flex hidden gap-5  shrink-0 grow-0;
 li:hover{
-    @apply text-primaryA30 cursor-pointer;
+    @apply text-surfaceA50 cursor-pointer;
 }
 }
 
 
-.optionsMenu>li{
+.optionsMenu>li , .optionsMenu a{
     display: flex;
     gap: 3px;
     align-items: center;

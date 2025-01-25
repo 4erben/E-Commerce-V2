@@ -30,21 +30,6 @@ export default function Navbar() {
                     shop
                   </Link>
                 </li>
-                <li>
-                  <span>
-                    products
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    blog
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    shop
-                  </span>
-                </li>
               </ul>
             </div>
             <div className="col-span-4">

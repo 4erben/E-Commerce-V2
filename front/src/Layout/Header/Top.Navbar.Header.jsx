@@ -62,12 +62,16 @@ export default function Top() {
                     <Dropdown title="english"  items={["english","spanish","arabic"]}/>
                     <Dropdown title="USD"  items={["USD","EUR","EGP"]}/>
                     <li>
-                        <span>login</span>
-                        <span><CiUser /></span> 
+                        <Link to="/auth/login">
+                            <span>login</span>
+                            <span><CiUser /></span> 
+                        </Link>
                     </li>
                     <li>
-                        <span>wishlist</span>
-                        <span><CiHeart /></span>
+                        <Link to="/wishlist">
+                            <span>wishlist</span>
+                            <span><CiHeart /></span>
+                        </Link>
                     </li>
                     <li className='hidden lg:block'>
                         <Link to="/cart" aria-label='cart link'>

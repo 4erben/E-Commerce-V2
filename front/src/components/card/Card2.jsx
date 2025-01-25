@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/Slices/cart.slice';
 import { BiSolidCartAdd } from 'react-icons/bi';
+import { addToWishlist } from '../../redux/Slices/wishlist.slice';
 
     const Card2 = React.memo(({product,bodyStyle}) => {
     const {images,price,title,discountPercentage} = product;
@@ -18,7 +19,9 @@ import { BiSolidCartAdd } from 'react-icons/bi';
     const handleAddToCart = ()=>{
         dispatch(addToCart(product))
     }
-
+    const handleAddToWishlist = ()=>{
+        dispatch(addToWishlist(product))
+    }
   return (
     <div className={`${styles.card} card !shadow-none md:mb-0 mb-8`}>
         <div className={`${styles.cardHeader} shadow-inner`}>
@@ -30,7 +33,7 @@ import { BiSolidCartAdd } from 'react-icons/bi';
                 <span onClick={handleAddToCart}>
                     <BiSolidCartAdd />
                 </span>
-                <span>
+                <span onClick={handleAddToWishlist}>
                     <CiHeart />
                 </span>
             </div>

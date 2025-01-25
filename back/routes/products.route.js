@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
-const Product = require("../models/products.model");
+const {Product} = require("../models/products.model");
 const getRecentProducts = require("../utils/recentCreatedProducts");
 const getTopProductsByCategory = require("../utils/getTopProductsByCategory");
 
